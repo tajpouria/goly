@@ -54,13 +54,13 @@ func (s *Suite) TestGetGolies() {
 		ID:       1,
 		Redirect: "a",
 		Goly:     "b",
-		Clicked:  false,
+		Clicked:  0,
 		Random:   false,
 	}, Goly{
 		ID:       2,
 		Redirect: "c",
 		Goly:     "d",
-		Clicked:  true,
+		Clicked:  0,
 		Random:   true,
 	}
 
@@ -82,7 +82,7 @@ func (s *Suite) TestGetGoly() {
 		id       = uint64(1)
 		redirect = "a"
 		goly     = "b"
-		clicked  = false
+		clicked  = uint64(0)
 		random   = false
 	)
 
@@ -110,7 +110,7 @@ func (s *Suite) TestGetGolyByURL() {
 		id       = uint64(1)
 		redirect = "a"
 		goly     = "b"
-		clicked  = false
+		clicked  = uint64(0)
 		random   = false
 	)
 
@@ -139,7 +139,7 @@ func (s *Suite) TestCreateGoly() {
 		id       = uint64(1)
 		redirect = "a"
 		goly     = "b"
-		clicked  = false
+		clicked  = uint64(0)
 		random   = false
 	)
 
@@ -165,7 +165,7 @@ func (s *Suite) TestUpdateGoly() {
 		id       = uint64(1)
 		redirect = "a"
 		goly     = "b"
-		clicked  = false
+		clicked  = uint64(0)
 		random   = false
 	)
 
@@ -191,7 +191,7 @@ func (s *Suite) TestDeleteGoly() {
 		id       = uint64(1)
 		redirect = "a"
 		goly     = "b"
-		clicked  = false
+		clicked  = uint64(0)
 		random   = false
 	)
 

@@ -15,8 +15,8 @@ type Goly struct {
 	ID       uint64 `json:"id" gorm:"column:id;primaryKey"`
 	Redirect string `json:"redirect" gorm:"column:redirect;not null" validate:"required,url"`
 	Goly     string `json:"goly" gorm:"column:goly;unique;not null" validate:"url_encoded"`
-	Random   bool  `json:"random" gorm:"column:random"`
-	Clicked  bool  `json:"clicked" gorm:"column:clicked"`
+	Random   bool   `json:"random" gorm:"column:random"`
+	Clicked  uint64 `json:"clicked" gorm:"column:clicked"`
 }
 
 func Setup() {

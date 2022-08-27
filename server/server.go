@@ -10,6 +10,7 @@ func SetupAndListen() {
 	app.Use(cors.New(cors.Config{AllowOrigins: "*"}))
 
 	RegisterGolyRoute(app.Group("/v1/goly"))
+	RegisterRedirectRouter(app.Group("/r"))
 
 	app.Listen(":8080")
 }
