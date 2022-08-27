@@ -3,18 +3,20 @@ package repository
 import (
 	"fmt"
 
+	"github.com/go-playground/validator/v10"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
 var Model Repository
+var Validate *validator.Validate
 
 type Goly struct {
 	ID       uint64 `json:"id" gorm:"column:id;primaryKey"`
-	Redirect string `json:"redirect" gorm:"column:redirect;not null"`
-	Goly     string `json:"goly" gorm:"column:goly;unique;not null"`
-	Clicked  bool   `json:"clicked" gorm:"column:clicked"`
-	Random   bool   `json:"random" gorm:"column:random"`
+	Redirect string `json:"redirect" gorm:"column:redirect;not null" validate:"required,url"`
+	Goly     string `json:"goly" gorm:"column:goly;unique;not null" validate:"url_encoded"`
+	Random   bool  `json:"random" gorm:"column:random"`
+	Clicked  bool  `json:"clicked" gorm:"column:clicked"`
 }
 
 func Setup() {
@@ -30,4 +32,5 @@ func Setup() {
 	}
 
 	Model = NewRepository(db)
+	Validate = validator.New()
 }
